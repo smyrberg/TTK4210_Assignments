@@ -1,0 +1,76 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{bm}
+\usepackage{biblatex}
+\usepackage{courier}
+\usepackage{float}
+\usepackage[colorlinks=true, allcolors = black, urlcolor=cyan]{hyperref}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{physics}
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\alph{subsection}}
+
+\title{Assignment 1}
+\subtitle{TTK4210 - Advanced Control of Industrial Processes}
+\author{Sondre Myrberg \\ \href{mailto:sondrmyr@stud.ntnu.no}{sondrmyr@stud.ntnu.no}}
+\date{\today}
+
+\setlength{\parindent}{0pt} % Disable indentation
+\mathtoolsset{showonlyrefs} % Only show equation numbers on referenced equations
+
+
+\begin{document}
+
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+    \maketitle
+    \vfill
+    \vfill
+    \vfill
+    \vfill
+    \vfill
+    \centering
+    \includegraphics[width=0.8\textwidth]{../ntnu_logo.pdf}
+    \vfill
+    \vfill
+\end{titlepage}
+\hypersetup{pageanchor=true}
+
+\section{Installation of K-Spice}
+Done, nothing more to report from here.\\
+
+\section{}
+\subsection{Startup}
+Startup completed and model loaded.\\
+\subsection{Simulation}
+The model simulates nicely with a maximum speed at about 400.\\
+\subsection{Graphs and parameters}
+The inital values of the controller \texttt{LIC0001} is shown in \autoref{fig:lic0001_init}.
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{fig/LIC0001_init.png}
+	\caption{Initial values of the controller \texttt{LIC0001}}
+	\label{fig:lic0001_init}
+\end{figure}
+
+\section{Model survey}
+The three main control loops for the 3-phase vessel \texttt{23VA0001} are the control loops for the two levels of fluid and the final loop for the amount of gas inside the vessel.\\
+
+\section{Model simulation and controller tuning}
+\subsection{}
+
+
+\section{Model Control Language (MCL) and date logging}
+
+\section{Model survey}
+\subsection{}
+The component \texttt{ASC0001} is an Anti Surge Controller that protects the compressor from surge. This is critical for the compressor to function properly.
+\subsection{}
+The \texttt{23HX0001} is a cooler. This component cools the gas that is fed back to the tank in one of the main control loops and the gas that is released. As we need to cool both the air released and the air fed back we place this before the feed back loop, so that we don't need two coolers.
+\subsection{}
+The component \texttt{PSV0001} is a safety valve to ensure that the pressure in the vessel isn't getting too high and blows up.
+
+\end{document}
