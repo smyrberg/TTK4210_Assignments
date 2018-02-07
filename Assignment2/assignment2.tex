@@ -8,10 +8,10 @@
 \usepackage{mathtools}
 \usepackage{physics}
 
-\renewcommand{\thesection}{}
-\renewcommand{\thesubsection}{\arabic{section}.\alph{subsection}}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\alph{subsection}}
 
-\title{Assignment XX}
+\title{Assignment 2}
 \subtitle{TTK4210 - Advanced Control of Industrial Processes}
 \author{Sondre Myrberg}
 \date{\today}
@@ -35,5 +35,34 @@
     \vfill
 \end{titlepage}
 \hypersetup{pageanchor=true}
+
+\section{Model implementation}
+The model given by
+\begin{equation}
+	\begin{aligned}
+		G &= \left[
+		\begin{array}{c|c}
+			A & B \\
+			\hline
+			C & \bm{0}
+		\end{array}
+		\right]
+		\\
+		G_d &= \left[
+		\begin{array}{c|c}
+			A & B_d \\
+			\hline
+			C & \bm{0}
+		\end{array}
+		\right]
+	\end{aligned}
+\end{equation}
+with $A$, $B$, $C$ and $B_d$ given in the exercise text is implemented as shown in \autoref{fig:1model}.
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{fig/LV.pdf}
+	\caption{Simulink model of LV-model}
+	\label{fig:1model}
+\end{figure}
 
 \end{document}
