@@ -1,0 +1,65 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{bm}
+\usepackage{biblatex}
+\usepackage{float}
+\usepackage[colorlinks=true, allcolors = black, urlcolor=cyan]{hyperref}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{matlab-prettifier}
+\usepackage{physics}
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\alph{subsection}}
+
+\title{Assignment 3}
+\subtitle{TTK4210 - Advanced Control of Industrial Processes}
+\author{Sondre Myrberg}
+\date{\today}
+
+\setlength{\parindent}{0pt} % Disable indentation
+\mathtoolsset{showonlyrefs} % Only show equation numbers on referenced equations
+
+
+\begin{document}
+
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+    \maketitle
+    \vfill
+    \vfill
+    \vfill
+    \vfill
+    \vfill
+    \includegraphics[width=0.95\textwidth]{../ntnu_logo.pdf}
+    \vfill
+    \vfill
+\end{titlepage}
+\hypersetup{pageanchor=true}
+
+\section{Anti-windup (and simulation) for the LV-model}
+
+\section{Anti-windup with PI controllers and selectors}
+\subsection{Model implementation}
+The plant can be modelled as shown in \autoref{fig:2asystem} with $y(s) = G(s)u(s) + G_d(s)d(s)$.
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.9\textwidth]{fig/simulink/system.pdf}
+	\caption{Implementation of the system given the transfer functions from input and disturbance to output}
+	\label{fig:2asystem}
+\end{figure}
+
+\subsection{Controller tuning}
+Using Ziegler-Nichols method of controlling a PI(D)-controller on each of the two control loops individually we get the following table of parameters
+
+\begin{center}
+	\begin{tabular}{c|c|c}
+		Controller & $K_p$ & $T_i$ \\
+		\hline
+		Flow & $3.04$ & $4.63$\\
+		Pressure & $18$ & $3.45$
+	\end{tabular}
+\end{center}
+This was obtained by using a unit step function as disturbance and observing the corresponding outputs, as per Ziegler-Nichols method.
+
+\end{document}
