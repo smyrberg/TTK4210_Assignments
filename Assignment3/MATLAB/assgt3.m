@@ -10,4 +10,11 @@ Ki_p = 1/Ti_p; Ki_f = 1/Ti_f;
 
 sim('assignment3.slx');
 %% Plot
-plot(p);
+figure
+subplot(211)
+hold on;
+plot(f); plot(p); plot(d); legend('flow rate', 'pressure','disturbance'); 
+
+subplot(212)
+hold on; 
+plot(u_f); plot(u_p); legend('Controller output from flow control', 'Controller output from pressure control');
