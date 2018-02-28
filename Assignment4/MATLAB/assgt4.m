@@ -17,10 +17,18 @@ up = B'*Q;
 shouldbezero = Po-Pi;
 
 %% 1c, RGA
-RGA = G.*inv(G).';
-RGA_ss = ss(RGA);
+G_zero = evalfr(G,0);
+RGA = G_zero.*inv(G_zero).';
+
+Kp1 = 1; Ti1 = 1; Ki1 = 1/Ti1;
+Kp2 = 1; Ti2 = 1; Ki2 = 1/Ti2;
 
 %% simulation
-%sim('assignment4.slx');
+sim('assignment4.slx');
 
 %% plot
+
+figure 
+hold on; 
+plot(y1);plot(y2); plot(y1_ref); plot(y2_ref);
+legend('y_1','y_2','y_{1,ref}','y_{2,ref}');
