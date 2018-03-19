@@ -1,0 +1,62 @@
+\documentclass[a4paper]{scrreprt}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{bm}
+\usepackage{biblatex}
+\usepackage{courier}
+\usepackage{float}
+\usepackage[colorlinks=true, allcolors = black, urlcolor=cyan]{hyperref}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{verbatim}
+
+\addbibresource{lib.bib}
+
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesection}{\thechapter.\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\alph{subsubsection}}
+\renewcommand{\autodot}{}% Remove all end-of-counter dots
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+
+
+\title{Assignment 6 - Project Kårstø Statpipe Butane Splitter} 
+\subtitle{TTK4210 - Advanced Control of Industrial Processes}
+\author{Sondre Myrberg}
+\date{\today}
+
+
+\setlength{\parindent}{0pt} % Disable indentation
+%\mathtoolsset{showonlyrefs} % Only show equation numbers on referenced equations
+\numberwithin{equation}{section}
+
+
+\begin{document}
+
+% \begin{center}
+%     \includegraphics[width=0.5\textwidth]{../ntnu_logo.pdf}
+% \end{center}
+\setcounter{page}{0}
+\pagenumbering{roman}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+    \maketitle
+\end{titlepage}
+\hypersetup{pageanchor=true}
+
+\tableofcontents
+\listoffigures
+
+\clearpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+\input{tuning}
+
+\clearpage
+
+\printbibliography
+
+\end{document}
