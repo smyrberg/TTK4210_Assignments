@@ -8,6 +8,8 @@
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc}
 \usepackage{mathtools}
+\usepackage{mcode}
+\usepackage[framed]{matlab-prettifier}
 \usepackage{physics}
 \usepackage{siunitx}
 \usepackage{verbatim}
@@ -31,6 +33,7 @@
 \setlength{\parindent}{0pt} % Disable indentation
 %\mathtoolsset{showonlyrefs} % Only show equation numbers on referenced equations
 \numberwithin{equation}{section}
+\numberwithin{figure}{section}
 
 
 \begin{document}
@@ -58,5 +61,8 @@
 \clearpage
 
 \printbibliography
+
+\appendix
+\input{appendix}
 
 \end{document}

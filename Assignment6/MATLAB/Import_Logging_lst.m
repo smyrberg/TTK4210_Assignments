@@ -3,7 +3,7 @@ clc
 
 %% Get data from the log file
 % Make sure to use the correct path for the log file
-fileID=fopen('Logging.lst_fc1015_tuned_new.txt','r'); % This loads the data log file
+fileID=fopen('Logging.lst_lc1016_exp_2.txt','r'); % This loads the data log file
 for m = 1:35
     String_Row=fgetl(fileID); % Ignore first 35 rows in the txt file	
 end
@@ -37,16 +37,18 @@ TC1088 = Data(:,26:28);     % Controller: 24_TC1088
 % PC1024(:,1) = Process Value, PV 
 % PC1024(:,2) = Set-Point, SP
 % PC1024(:,3) = Control signal, OP
-%% Example plot
-clf
-subplot(2,1,1)
-plot(Time./60,FC1015(:,1:2))
-title('Flow Control')
-legend('Process Value, PV', 'Set-Point, SP')
-xlabel('Time (min)')
-ylabel('Flow (t/h)')
-subplot(2,1,2)
-plot(Time./60,FC1015(:,3))
-legend('Controller output, OP')
-xlabel('Time (min)')
-ylabel('%')
+
+% %% Example plot
+% clf
+% subplot(2,1,1)
+% plot(Time./60,FC1015(:,1:2))
+% title('Flow Control')
+% legend('Process Value, PV', 'Set-Point, SP')
+% xlabel('Time (min)')
+% ylabel('Flow (t/h)')
+% subplot(2,1,2)
+% plot(Time./60,FC1015(:,3))
+% legend('Controller output, OP')
+% xlabel('Time (min)')
+% ylabel('%')
+% 

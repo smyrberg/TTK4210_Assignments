@@ -124,7 +124,7 @@ This again leads to fairly good response, although the controller is maybe sligh
 \end{figure}
 
 
-\subsection{Tuning of \texttt{PC\_1024}}
+\subsection{Tuning of \texttt{24\_PC1024}}
 When applying a step oon the input of the pressure controller \texttt{PC\_1024} we get the output response shown in \autoref{fig:pc1024_simc}. When then applying the SIMC method to this output response, we see that we do not have a proper first order model with delay or a clean integrating response with delay, we instead treat the time from the step until the integration starts properly as the time delay $\theta$. We also calculate the internal gain as in \eqref{eq:scaling} and obtain the parameters $G = -1.62$, $\delta u = 0.3$, $\delta t = 900$, $\delta y = -0.021$ and $\theta = 300$. Using the rules from \eqref{eq:simc} and chosing $\tau_c = \theta$ for faster control we get the controller parameters
 
 \begin{equation}
@@ -158,5 +158,16 @@ When it came to the controller \texttt{24\_FC1015}, I came to the conclusion tha
 	\label{fig:fc1015_tuned}
 \end{figure}
 
-\section{Tuning and identification of level controllers}
-We now move on to the identification and tuning of the level controllers \texttt{24\_LC1015} and \texttt{24\_LC1016}. These controllers
+\clearpage
+\section{Tuning and identification of level controllers}\label{sec:levelcontrollers}
+We now move on to the identification and tuning of the level controllers \texttt{24\_LC1015} and \texttt{24\_LC1016}. The base code for this is shown in \autoref{lst:identification}, where minor adjustments is done to the .txt-file we import based on what data we have exported from K-Spice and which contoller we have excited.
+
+\subsection{Level controller \texttt{24\_LC1016}}
+We start by doing an set point exciting experiment on the controller \texttt{24\_LC1016}, where we do several step changes in the set point, and then observe the output. We then import this to MATLAB and use the built in function \mcode{n4sid} to estimate a state space realization of the system we are looking at. In \autoref{fig:lc1016_identified} we see the actual response of the controller  normalized and compared to the identified model. We see that the identified model is fairly good.
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{fig/identification/lc1016_order2_ref.eps}
+	\caption{Actual response and response of identified model of order 2 for the controller \texttt{24\_LC1016}}
+	\label{fig:lc1016_identified}
+\end{figure}
