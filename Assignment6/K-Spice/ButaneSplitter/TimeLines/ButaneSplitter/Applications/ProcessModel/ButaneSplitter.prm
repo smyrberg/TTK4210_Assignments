@@ -4,7 +4,7 @@
     <Description></Description>
     <Comment></Comment>
     <ModelTime></ModelTime>
-    <SaveTime>2018-03-19T16:01:02.183Z</SaveTime>
+    <SaveTime>2018-04-18T13:55:24.889Z</SaveTime>
     <ModelFile>C:\Users\Sondre\Documents\TTK4210_Assignments\Assignment6\K-Spice\ButaneSplitter\Timelines\ButaneSplitter\Applications\ProcessModel\ButaneSplitter.mdl</ModelFile>
     <ParameterFile></ParameterFile>
     <ValueFile></ValueFile>
@@ -32890,10 +32890,10 @@
         <Value>0</Value>
       </DataItem>
       <DataItem Name="IntegralTime" >
-        <Value>1500</Value>
+        <Value>1440</Value>
       </DataItem>
       <DataItem Name="Gain" >
-        <Value>5</Value>
+        <Value>5.0199999999999996</Value>
       </DataItem>
       <DataItem Name="DerivativeFiltering" >
         <Value>0</Value>
@@ -37220,10 +37220,10 @@
         <Value>0</Value>
       </DataItem>
       <DataItem Name="IntegralTime" >
-        <Value>1000</Value>
+        <Value>750</Value>
       </DataItem>
       <DataItem Name="Gain" >
-        <Value>2.3999999999999999</Value>
+        <Value>3.3199999999999998</Value>
       </DataItem>
       <DataItem Name="DerivativeFiltering" >
         <Value>0</Value>
@@ -40132,7 +40132,7 @@
         <Value>1200</Value>
       </DataItem>
       <DataItem Name="Gain" >
-        <Value>2</Value>
+        <Value>9.6600000000000001</Value>
       </DataItem>
       <DataItem Name="DerivativeFiltering" >
         <Value>0</Value>
@@ -40661,10 +40661,10 @@
         <Value>0</Value>
       </DataItem>
       <DataItem Name="IntegralTime" >
-        <Value>150</Value>
+        <Value>1440</Value>
       </DataItem>
       <DataItem Name="Gain" >
-        <Value>6</Value>
+        <Value>66</Value>
       </DataItem>
       <DataItem Name="DerivativeFiltering" >
         <Value>0</Value>

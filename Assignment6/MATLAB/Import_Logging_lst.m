@@ -1,9 +1,10 @@
-clear all
+clear variables
+close all
 clc
 
 %% Get data from the log file
 % Make sure to use the correct path for the log file
-fileID=fopen('Logging.lst_lc1016_exp_2.txt','r'); % This loads the data log file
+fileID=fopen('Logging.lst_12h_3.txt','r'); % This loads the data log file
 for m = 1:35
     String_Row=fgetl(fileID); % Ignore first 35 rows in the txt file	
 end
@@ -38,17 +39,42 @@ TC1088 = Data(:,26:28);     % Controller: 24_TC1088
 % PC1024(:,2) = Set-Point, SP
 % PC1024(:,3) = Control signal, OP
 
-% %% Example plot
+%% Example plot
+clf
+subplot(2,2,1)
+plot(Time./3600,TC1015(:,1:2))
+title('Temperature Control TC1015')
+legend('Process Value, PV', 'Set-Point, SP')
+xlabel('Time (hours)')
+ylabel('Degrees Celsius')
+subplot(2,2,3)
+plot(Time./3600,TC1015(:,3))
+legend('Controller output, OP')
+xlabel('Time (hours)')
+ylabel('t/h')
+subplot(2,2,2)
+plot(Time./3600,TC1088(:,1:2))
+title('Temperature Control TC1088')
+legend('Process Value, PV', 'Set-Point, SP')
+xlabel('Time (hours)')
+ylabel('Degrees Celsius')
+subplot(2,2,4)
+plot(Time./3600,TC1088(:,3))
+legend('Controller output, OP')
+xlabel('Time (hours)')
+ylabel('%')
+% 
+% %% plot
 % clf
 % subplot(2,1,1)
-% plot(Time./60,FC1015(:,1:2))
-% title('Flow Control')
+% plot(Time./3600,LC1028(:,1:2))
+% title('Area of heat exchange')
 % legend('Process Value, PV', 'Set-Point, SP')
 % xlabel('Time (min)')
-% ylabel('Flow (t/h)')
+% ylabel('%')
 % subplot(2,1,2)
-% plot(Time./60,FC1015(:,3))
+% plot(Time./3600,LC1028(:,3))
 % legend('Controller output, OP')
 % xlabel('Time (min)')
 % ylabel('%')
-% 
+
