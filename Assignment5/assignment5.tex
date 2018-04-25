@@ -1,0 +1,67 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{bm}
+\usepackage{biblatex}
+\usepackage{float}
+\usepackage[colorlinks=true, allcolors = black, urlcolor=cyan]{hyperref}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{physics}
+
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsection}{\arabic{subsection}.}
+
+\title{Assignment 5}
+\subtitle{TTK4210 - Advanced Control of Industrial Processes}
+\author{Sondre Myrberg}
+\date{\today}
+
+\setlength{\parindent}{0pt} % Disable indentation
+\mathtoolsset{showonlyrefs} % Only show equation numbers on referenced equations
+
+
+\begin{document}
+
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+    \maketitle
+    \vfill
+    \vfill
+    \vfill
+    \vfill
+    \vfill
+    \includegraphics[width=0.95\textwidth]{../ntnu_logo.pdf}
+    \vfill
+    \vfill
+\end{titlepage}
+\hypersetup{pageanchor=true}
+
+\section{Selecting controlled outputs}
+
+Given the cost function
+\begin{equation}
+	J(u,d) = (u-2d)^2
+\end{equation}
+and the possible measurements of the process
+\begin{equation}
+	\begin{aligned}
+		y_1 &= 0.2(u-d)\\
+		y_2 &= u\\
+		y_3 &= 8u - 5d
+	\end{aligned}
+\end{equation}
+with the magnitude of the expected disturbances and implementations errors $W_d$ and $W_e$ given as
+\begin{equation}
+	\begin{aligned}
+		W_d &= 1\\
+		W_e &= \begin{bmatrix}
+			1 & 0 & 0\\
+			0 & 1 & 0\\
+			0 & 0 & 1
+		\end{bmatrix}
+	\end{aligned}
+\end{equation}
+
+\subsection{}
+
+\end{document}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KSpiceFile>
+  <Version>3.2.0.9</Version>
+  <Category>InitName</Category>
+  <Comment></Comment>
+  <Description></Description>
+  <SaveTime>2018-04-12T08:31:47.993Z</SaveTime>
+  <ModelTime>0000002:00:00.000</ModelTime>
+  <TimeFormat>Engineering</TimeFormat>
+  <WriteProtected>false</WriteProtected>
+</KSpiceFile>

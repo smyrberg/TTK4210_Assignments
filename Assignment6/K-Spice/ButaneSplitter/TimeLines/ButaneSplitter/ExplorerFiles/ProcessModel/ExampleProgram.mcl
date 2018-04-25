@@ -1,0 +1,25 @@
+// MCL Example
+
+// Load inital Conditions
+LoadConditions("ButaneSplitterStable")
+// Run Model for 300 minutes
+RunUntil([000:300:00.00])
+
+// Set 24_TC1015 and 24_TC1088 in Manual Mode ("0" = Auto Mode, "1" = Manual Mode)
+// at ([05:00.00]) {24_TC1015:Mode} = 1 
+// at ([05:00.00]) {24_TC1088:Mode} = 1 
+
+ 
+// Obtain value for Set-point / Controller Output 
+Internal_SP = {24_LC1015:InternalSetpoint}
+// External_SP = {24_LC1015:ExternalSetpoint}
+// Controller_Output = {24_LC1015:ControllerOutput}
+
+at ([90:00.00]) {24_LC1015:InternalSetpoint} = Internal_SP + 1.5
+// at ([200:00.00]) {24_LC1015:InternalSetpoint} = Internal_SP - 1.5
+
+// Set controllers back to their origninal operation
+at ([299:59.00]) {24_LC1015:InternalSetpoint} = Internal_SP
+// Set 24_TC1015 and 24_TC1088 in Auto Mode ("0" = Auto Mode, "1" = Manual Mode)
+//at ([239:30.00]) {24_TC1015:Mode} = 0 
+//at ([239:30.00]) {24_TC1088:Mode} = 0 

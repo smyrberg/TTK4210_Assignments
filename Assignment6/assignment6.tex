@@ -1,0 +1,84 @@
+\documentclass[numbers=noenddot,a4paper]{scrreprt}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[title]{appendix}
+\usepackage{bm}
+\usepackage{biblatex}
+\usepackage{courier}
+\usepackage{float}
+\usepackage[colorlinks=true, allcolors = black, urlcolor=cyan]{hyperref}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage{mcode}
+\usepackage[framed]{matlab-prettifier}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{verbatim}
+
+\addbibresource{lib.bib}
+
+\lstset{frame=single}
+
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesection}{\thechapter.\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\alph{subsubsection}}
+\renewcommand{\autodot}{}% Remove all end-of-counter dots
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+
+
+\title{Assignment 6 - Project Kårstø Statpipe Butane Splitter} 
+\subtitle{TTK4210 - Advanced Control of Industrial Processes}
+\author{Sondre Myrberg}
+\date{\today}
+
+
+\setlength{\parindent}{0pt} % Disable indentation
+%\mathtoolsset{showonlyrefs} % Only show equation numbers on referenced equations
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+\providecommand*\appendixmore{}
+\renewcommand*\appendixmore{%
+    \renewcommand*{\chapterformat}{%
+      \mbox{\appendixname~\thechapter\autodot:\enskip}%
+    }%
+}
+
+
+\begin{document}
+
+% \begin{center}
+%     \includegraphics[width=0.5\textwidth]{../ntnu_logo.pdf}
+% \end{center}
+\setcounter{page}{0}
+\pagenumbering{roman}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+    \maketitle
+\end{titlepage}
+\hypersetup{pageanchor=true}
+
+\tableofcontents
+\listoffigures
+
+\clearpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+\renewcommand{\thefigure}{\thechapter.\arabic{figure}}
+\input{intro}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\clearpage
+\input{tuning}
+\clearpage
+\input{results}
+\clearpage
+
+\printbibliography
+
+\appendix
+\renewcommand{\thefigure}{\thechapter.\arabic{figure}}
+\input{appendix}
+
+\end{document}

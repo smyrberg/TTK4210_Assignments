@@ -120,9 +120,51 @@ The relative gain array of a system is given as
 		\text{RGA}(G) &= \Lambda(G) \triangleq G \cross (G^{-1})^\top
 	\end{aligned}
 \end{equation}
-where $\cross$ denotes the element wise multiplication of the matrices $G$ and $(G^{-1})^\top$.
+where $\cross$ denotes the element wise multiplication of the matrices $G$ and $(G^{-1})^\top$. We here use the steady-state gain matrix $G(0)$ and compute the RGA-matrix with the MATLAB-code shown in \autoref{lst:RGA}.
+\begin{lstlisting}[style = matlab-editor, caption = MATLAB code to generate the RGA-matrix, label = lst:RGA]
+G_zero = evalfr(G,0);
+RGA = G_zero.*inv(G_zero).';
+\end{lstlisting}
+This yields the RGA-matrix
+{\small \begin{verbatim}
+	RGA =
 
+   -2.0000    3.0000
+    3.0000   -2.0000
+\end{verbatim}
+}
+By observing this and looking at the pairing rules given in the book, we want pairings with elements close to one, but more important we want to avoid pairing with negative elements. The natural choice of pairing is then $y_1$ with $u_2$ and $y_2$ with $u_1$. This is implemented as shown in \autoref{fig:sys_diag_pair}. The controllers are here both simple PI-controllers with $K_p = 1$ and $T_i = 1$. The output responses of the system with these controllers with unit steps in both references at different times are shown in \autoref{fig:resp_diagonal}.
 
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{fig/sys_diag_pair.pdf}
+	\caption{System with diagonal pairing}
+	\label{fig:sys_diag_pair}
+\end{figure}
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{fig/resp_diagonalpairing_stable.eps}
+	\caption{Response with diagonal pairing and steps in references}
+	\label{fig:resp_diagonal}
+\end{figure}
+
+%\clearpage
+
+\subsection{}
+Using the opposite pairing we get an unstable system as shown in \autoref{fig:resp_opposite_unstable}. This can however be counteracted by having negative gain in one of the controllers. Setting $K_{p,1} = -0.1$ we get the response shown in \autoref{fig:resp_opposite_stable}. This yields a stable plant, but is not a desirable solution as at once you take one of the loops out of service the whole plant becomes unstable.
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{fig/resp_oppositepairing_unstable.eps}
+	\caption{Response of system with the opposite pairing}
+	\label{fig:resp_opposite_unstable}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{fig/resp_oppositepairing_stable.eps}
+	\caption{Response of system with opposite pairing and negative gain}
+	\label{fig:resp_opposite_stable}
+\end{figure}
 
 \end{document}
 
